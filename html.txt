@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Days Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    input[type="date"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #result {
+      font-size: 24px;
+      color: #333;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Days Calculator</h1>
+  <label for="startDate">Enter start date:</label>
+  <input type="date" id="startDate">
+  <br>
+  <label for="endDate">Enter end date:</label>
+  <input type="date" id="endDate">
+  <br>
+  <button onclick="calculateDays()">Calculate</button>
+  <div id="result"></div>
+
+  <script>
+    function calculateDays() {
+      var startDateInput = document.getElementById("startDate").value;
+      var endDateInput = document.getElementById("endDate").value;
+      var startDate = new Date(startDateInput);
+      var endDate = new Date(endDateInput);
+
+      var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+      var days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      var resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "Number of days: " + days;
+    }
+  </script>
+</body>
+</html>
